@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="calc_two_button.css">
+</head>
+<body>
+    <div class="container" >
+        <div class="posl">
+        <h1 id="left" class="bg-left">0</h1>
+            <button id="linc"class='leftinc bg'>inc</button>
+            <button id="ldic" class="leftdic bg">dic</button>
+        </div>
+
+        <div class="posr">
+        <h1 id= "right"class="bg-right">0</h1>
+            <button id="Rinc" class='rightinc bg'>inc</button>
+            <button id="Rdic" class='rightdic bg'>dic</button>
+        </div>
+        
+        <div class="posans">
+        <h1 id="ans" class="bg-ans">0</h1>
+            <button class='ans bg' onclick="multi()">X</button>
+                <button class='ans bg'onclick="add()">+</button>
+                <button class='ans bg'onclick="sub()">-</button>
+                <button class='ans bg'onclick="div()">/</button>
+        </div>
+
+            <script> 
+                let countl=0;countr=0
+                let linc=document.querySelector("#linc")
+                let ldic=document.querySelector("#ldic")                  
+                       
+                let display_l=document.querySelector("#left")
+
+        
+                
+                linc.onclick=checkl
+                ldic.onclick=checkl
+
+                function checkl(e){ 
+                    let btn=e.target
+                    console.log(btn.document)
+                    let v=btn.innerText=='inc'?1:-1
+                    countl+=v   
+                    display_l.innerText=`${countl}`
+                  
+                                 
+                }
+            
+                let rinc=document.querySelector("#Rinc")
+                let rdic=document.querySelector("#Rdic")
+
+                let display_r=document.querySelector("#right")
+
+                rinc.onclick=checkr
+                rdic.onclick=checkr
+
+                function checkr(e){
+
+                    let btn=e.target
+                    let v=btn.innerText=='inc'? 1:-1
+                    countr+=v
+                    display_r.innerText=`${countr}`
+                }
+
+                main=document.querySelector("#ans")
+
+                function multi(){
+                   main.innerText=`${Number(display_l.innerText)*Number(display_r.innerText)}`
+                }
+                function add(){
+                   main.innerText=`${Number(display_l.innerText)+Number(display_r.innerText)}`
+                }
+                function sub(){
+                   main.innerText=`${Number(display_l.innerText)-Number(display_r.innerText)}`
+                }
+                function div(){
+                   main.innerText=`${Number(display_l.innerText)/Number(display_r.innerText)}`
+                }
+              
+               
+
+              
+                            
+                           
+        </script>
+    </div>
+</body>
+</html>
